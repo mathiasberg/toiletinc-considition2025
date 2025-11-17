@@ -1,5 +1,7 @@
 # Considition 2025
 
+![ToiletInc Considition 2025](./toiletinc-considition2025.png)
+
 Algorithmic challenge to manage a fleet of electric vehicles efficiently.
 
 ## Quick Start

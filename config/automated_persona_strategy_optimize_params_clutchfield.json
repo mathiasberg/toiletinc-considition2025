@@ -1,0 +1,50 @@
+{
+  "name": "Optimezed Aggressive",
+  "description": "Fast strategy - lower charging thresholds, risks running out for speed/score optimization",
+  "charging_thresholds": {
+    "proactive_threshold": 0.60,
+    "emergency_threshold": 0.40,
+    "safety_margin": 1.3,
+    "energy_buffer_multiplier": 1.5,
+    "reachability_margin": 1.06
+  },
+  "persona_charge_targets": {
+    "Stressed": 1,
+    "CostSensitive": 0.84,
+    "DislikesDriving": 1,
+    "EcoConscious": 0.96,
+    "Neutral": 0.95
+  },
+  "loop_detection": {
+    "enabled": true,
+    "lookback_ticks": 15,
+    "two_node_loop_min_visits": 6,
+    "three_node_loop_min_visits": 9
+  },
+  "station_selection": {
+    "eco_conscious": {
+      "green_energy_weight": 800,
+      "distance_penalty": 1.2
+    },
+    "cost_sensitive": {
+      "price_weight": 1.0,
+      "distance_penalty": 0.15
+    },
+    "stressed_dislikes_driving": {
+      "prefer_closest": true
+    }
+  },
+  "dynamic_intervention": {
+    "enabled": true,
+    "check_states": [
+      "TransitioningToNode",
+      "TransitioningToEdge"
+    ],
+    "exclude_states": [
+      "Home",
+      "WaitingForCharger",
+      "Charging",
+      "DoneCharging"
+    ]
+  }
+}

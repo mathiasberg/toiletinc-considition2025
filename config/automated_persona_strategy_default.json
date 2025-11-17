@@ -1,0 +1,42 @@
+{
+  "name": "default",
+  "description": "Balanced strategy with moderate safety margins and charging thresholds",
+  "charging_thresholds": {
+    "proactive_threshold": 0.50,
+    "emergency_threshold": 0.30,
+    "safety_margin": 1.1,
+    "energy_buffer_multiplier": 1.5,
+    "reachability_margin": 1.05
+  },
+  "persona_charge_targets": {
+    "Stressed": 1.0,
+    "CostSensitive": 0.50,
+    "DislikesDriving": 1.0,
+    "EcoConscious": 1.0,
+    "Neutral": 0.90
+  },
+  "loop_detection": {
+    "enabled": true,
+    "lookback_ticks": 20,
+    "two_node_loop_min_visits": 6,
+    "three_node_loop_min_visits": 9
+  },
+  "station_selection": {
+    "eco_conscious": {
+      "green_energy_weight": 1000,
+      "distance_penalty": 1.0
+    },
+    "cost_sensitive": {
+      "price_weight": 1.0,
+      "distance_penalty": 0.1
+    },
+    "stressed_dislikes_driving": {
+      "prefer_closest": true
+    }
+  },
+  "dynamic_intervention": {
+    "enabled": true,
+    "check_states": ["TransitioningToNode", "TransitioningToEdge"],
+    "exclude_states": ["Home", "WaitingForCharger", "Charging", "DoneCharging"]
+  }
+}

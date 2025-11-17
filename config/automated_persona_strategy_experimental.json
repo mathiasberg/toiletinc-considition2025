@@ -1,0 +1,42 @@
+{
+  "name": "experimental",
+  "description": "Experimental strategy for testing extreme parameters - very aggressive loop detection and high thresholds",
+  "charging_thresholds": {
+    "proactive_threshold": 0.70,
+    "emergency_threshold": 0.50,
+    "safety_margin": 1.5,
+    "energy_buffer_multiplier": 1.5,
+    "reachability_margin": 1.05
+  },
+  "persona_charge_targets": {
+    "Stressed": 1.0,
+    "CostSensitive": 0.95,
+    "DislikesDriving": 1.0,
+    "EcoConscious": 1.0,
+    "Neutral": 1.0
+  },
+  "loop_detection": {
+    "enabled": true,
+    "lookback_ticks": 30,
+    "two_node_loop_min_visits": 4,
+    "three_node_loop_min_visits": 6
+  },
+  "station_selection": {
+    "eco_conscious": {
+      "green_energy_weight": 500,
+      "distance_penalty": 2.0
+    },
+    "cost_sensitive": {
+      "price_weight": 1.0,
+      "distance_penalty": 0.2
+    },
+    "stressed_dislikes_driving": {
+      "prefer_closest": true
+    }
+  },
+  "dynamic_intervention": {
+    "enabled": true,
+    "check_states": ["TransitioningToNode", "TransitioningToEdge"],
+    "exclude_states": ["Home", "WaitingForCharger", "Charging", "DoneCharging"]
+  }
+}
